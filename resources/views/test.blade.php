@@ -17,12 +17,22 @@
     <script>
         $(document).ready(function () {
             $.ajax({
-                url : 'http://lar.dev/link'+'?link='+window.location.href,
+                url : 'http://lar.dev/link?link='+window.location.href,
                 type : 'GET',
                 success : function (data) {
-                    $('#comment').append(data);
-                    console.log(data);
+                    $('#comment').append(data[0]);
                 }
+            });
+            $(document).on('click','#btn-comment',function(){
+                var content = $('#content-conment').val();
+                $.ajax({
+                    url : 'http://lar.dev/add-comment?link='+window.location.href+'&comment='+content,
+                    type: 'GET',
+                    success : function (data) {
+                        console.log(data)
+                    }
+                })
+                return false;
             });
         })
 //        console.log(window.location.href)

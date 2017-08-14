@@ -26,3 +26,4 @@ Route::get('test',function (){
 });
 
 Route::get('link','LinkController@getLink');
+Route::get('add-comment','LinkController@addComment');

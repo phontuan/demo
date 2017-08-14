@@ -8,7 +8,7 @@ class Link extends Model
 {
     protected $table = 'links';
     protected $fillable = [
-        'id', 'link'
+        'id', 'url'
     ];
     public function comments()
     {
