@@ -88,16 +88,17 @@
     <script>
         $(document).ready(function () {
             $.ajax({
-                url : 'http://lar.dev/link?link='+window.location.href,
+                url : '{{url('/')}}'+'/link?link='+window.location.href,
                 type : 'GET',
                 success : function (data) {
+                    console.log(data);
                     $('#comment').append(data);
                 }
             });
             $(document).on('click','#btn-comment',function(){
                 var content = $('#input-conment').val();
                 $.ajax({
-                    url : 'http://lar.dev/add-comment?link='+window.location.href+'&comment='+content,
+                    url : '{{url('/')}}'+'/add-comment?link='+window.location.href+'&comment='+content,
                     type: 'GET',
                     success : function (data) {
                         $('.commentList').append(' <li>'+

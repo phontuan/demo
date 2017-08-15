@@ -8,10 +8,11 @@ use App\Comment;
 
 class LinkController extends Controller
 {
-    public function getLink(Request $request){
+    public function getLink(Request $request)
+    {
         $link = $request->get('link');
         $check_link = Link::where('url',$link)->exists();
-        if($check_link){
+        if ($check_link){
             $link_comment  = Link::where('url',$link)->first();
             $all_comment = $link_comment->comments()->get();
             return view('comments.index',compact('all_comment'));
@@ -20,7 +21,8 @@ class LinkController extends Controller
             return view('comments.add');
         }
     }
-    public function addComment(Request $request){
+    public function addComment(Request $request)
+    {
         $link = $request->get('link');
         $link_comment = Link::where('url',$link)->first();
         $comment = new Comment;
