@@ -42,7 +42,7 @@
             width:100%;
         }
         .taskDescription {
-            margin-top:10px 0;
+            margin-top:10px;
         }
         .commentList {
             padding:0;
